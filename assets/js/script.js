@@ -192,6 +192,18 @@ $(".card .list-group").sortable({
   }
 });
 
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function (event, ui) {
+    console.log("over");
+    ui.draggable.remove();//deleted the task item 
+  },
+  out: function (event, ui) {
+    console.log("out");
+  }
+});
+
 // modal was triggered
 $("#task-form-modal").on("show.bs.modal", function () {
   // clear values
